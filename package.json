@@ -1,0 +1,25 @@
+{
+  "name": "docker-multistage-build-typescript",
+  "version": "1.0.0",
+  "description": "docker multistage build example with typescript project",
+  "main": "index.js",
+  "scripts": {
+    "build": "docker build --no-cache -t ts-app:latest .",
+    "start:dev": "ts-node ./src/index.ts",
+    "start": "node ./dist/index.js",
+    "start:prod:container": "docker run -p 5000:5000 -d --name ts-app ts-app",
+    "stop:prod:container": "docker stop ts-app && docker rm ts-app"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.15",
+    "@types/node": "^18.11.17",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  }
+}
